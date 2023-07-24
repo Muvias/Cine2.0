@@ -1,3 +1,5 @@
+import { Combobox } from "./Combobox";
+
 export function Menu() {
     return (
         <div className="w-full h-full relative">
@@ -5,7 +7,7 @@ export function Menu() {
                 <li className="text-3xl">Inicio</li>
                 <li className="text-3xl">Sobre Nós</li>
                 <li className="text-3xl">Localização</li>
-                <li className="text-3xl">Catálogo</li>
+                <li className="text-3xl"><Combobox /></li>
             </ul>
         </div>
     )

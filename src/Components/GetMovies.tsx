@@ -7,6 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { MutableRefObject, useRef } from "react";
+import { ScrollArea } from "./ui/scroll-area";
 
 interface Movie {
     id: number;
@@ -52,8 +53,9 @@ export function GetMovies() {
                                 className='mx-auto aspect-video object-cover rounded-md mt-8'
                             />
                             <h2 className="text-3xl text-center my-4 font-bold text-gray-800">{movie.title}</h2>
-
-                            <p className="text-lg font-semibold h-[10rem] overflow-y-scroll px-6 py-2 shadow-md rounded-sm text-gray-800 bg-white bg-opacity-50">{movie.overview}</p>
+                            <ScrollArea className="h-[10rem] px-6 py-2 shadow-md rounded-sm text-gray-800 bg-white bg-opacity-50">
+                                <p className="text-lg font-semibold ">{movie.overview}</p>
+                            </ScrollArea>
                         </div>
 
                         <Image

@@ -1,4 +1,4 @@
-import { GetMovies } from "@/Components/GetMovies";
+import { GetMovies } from "@/components/GetMovies";
 
 export default function Home() {
   return (
