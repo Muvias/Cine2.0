@@ -1,10 +1,11 @@
 import { Menu } from '@/components/Menu'
 import './globals.css'
 
-import Providers from './providers'
+import Providers from '../contexts/providers'
 
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
+import { ToApiProvider } from '@/contexts/ToApiContext'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -25,15 +26,17 @@ export default function RootLayout({
     <html lang="en">
       <body className={poppins.className}>
         <main className="grid grid-cols-2 min-h-screen">
-          {/* Filtros */}
-          <div className='text-white bg-black'>
-            <Menu />
-          </div>
+          <ToApiProvider>
+            {/* Menu e Filtros */}
+            <div className='text-white bg-black'>
+              <Menu />
+            </div>
 
-          {/* Visor dos Filmes */}
-          <Providers>
-            {children}
-          </Providers>
+            {/* Visor dos Filmes */}
+            <Providers>
+              {children}
+            </Providers>
+          </ToApiProvider>
         </main>
       </body>
     </html>

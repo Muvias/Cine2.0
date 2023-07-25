@@ -17,25 +17,33 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover"
+import { ToApiContext } from "@/contexts/ToApiContext"
 
-const frameworks = [
+const categories = [
     {
         value: "cinema",
         label: "cinema",
+        searchParam: "movie/now_playing",
+        query: ''
     },
     {
         value: "marvel",
         label: "marvel",
+        searchParam: "search/movie",
+        query: "marvel"
     },
     {
         value: "dc",
         label: "dc",
+        searchParam: "search/movie",
+        query: "dc"
     },
 ]
 
 export function Combobox() {
     const [open, setOpen] = React.useState(false)
     const [value, setValue] = React.useState("cinema")
+    const { setSearchParam, setQueryParam } = React.useContext(ToApiContext)
 
     return (
         <Popover open={open} onOpenChange={setOpen}>
@@ -55,21 +63,23 @@ export function Combobox() {
                     <CommandInput placeholder="Procurar categoria..." />
                     <CommandEmpty>Categoria não encontrada.</CommandEmpty>
                     <CommandGroup>
-                        {frameworks.map((framework) => (
+                        {categories.map((categorie) => (
                             <CommandItem
-                                key={framework.value}
+                                key={categorie.value}
                                 onSelect={(currentValue) => {
                                     setValue(currentValue === value ? "" : currentValue)
+                                    setSearchParam(categorie.searchParam)
+                                    setQueryParam(categorie.query)
                                     setOpen(false)
                                 }}
                             >
                                 <Check
                                     className={cn(
                                         "mr-2 h-4 w-4",
-                                        value === framework.value ? "opacity-100" : "opacity-0"
+                                        value === categorie.value ? "opacity-100" : "opacity-0"
                                     )}
                                 />
-                                {framework.label}
+                                {categorie.label}
                             </CommandItem>
                         ))}
                     </CommandGroup>
