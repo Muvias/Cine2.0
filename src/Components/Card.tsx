@@ -20,6 +20,7 @@ export function Card({ cardImg, bgImg, title, description }: Card) {
                     alt=''
                     width={592}
                     height={280}
+                    priority={true}
                     className='mx-auto aspect-video object-cover rounded-md mt-8'
                 />
 
@@ -39,6 +40,7 @@ export function Card({ cardImg, bgImg, title, description }: Card) {
                 alt=''
                 width={592}
                 height={280}
+                priority={true}
                 className='absolute left-0 top-0 w-full h-full object-cover opacity-30 rounded brightness-75'
             />
         </div>

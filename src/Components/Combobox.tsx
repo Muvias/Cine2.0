@@ -1,6 +1,9 @@
 "use client"
 
 import * as React from "react"
+
+import Link from "next/link"
+
 import { Check, ChevronsUpDown } from "lucide-react"
 
 import { cn } from "@/lib/utils"
@@ -79,7 +82,9 @@ export function Combobox() {
                                         value === categorie.value ? "opacity-100" : "opacity-0"
                                     )}
                                 />
-                                {categorie.label}
+                                <Link href="/">
+                                    {categorie.label}
+                                </Link>
                             </CommandItem>
                         ))}
                     </CommandGroup>
