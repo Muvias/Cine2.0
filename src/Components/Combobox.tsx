@@ -67,25 +67,24 @@ export function Combobox() {
                     <CommandEmpty>Categoria não encontrada.</CommandEmpty>
                     <CommandGroup>
                         {categories.map((categorie) => (
-                            <CommandItem
-                                key={categorie.value}
-                                onSelect={(currentValue) => {
-                                    setValue(currentValue === value ? "" : currentValue)
-                                    setSearchParam(categorie.searchParam)
-                                    setQueryParam(categorie.query)
-                                    setOpen(false)
-                                }}
-                            >
-                                <Check
-                                    className={cn(
-                                        "mr-2 h-4 w-4",
-                                        value === categorie.value ? "opacity-100" : "opacity-0"
-                                    )}
-                                />
-                                <Link href="/">
+                            <Link href="/" key={categorie.value}>
+                                <CommandItem
+                                    onSelect={(currentValue) => {
+                                        setValue(currentValue)
+                                        setSearchParam(categorie.searchParam)
+                                        setQueryParam(categorie.query)
+                                        setOpen(false)
+                                    }}
+                                >
+                                    <Check
+                                        className={cn(
+                                            "mr-2 h-4 w-4",
+                                            value === categorie.value ? "opacity-100" : "opacity-0"
+                                        )}
+                                    />
                                     {categorie.label}
-                                </Link>
-                            </CommandItem>
+                                </CommandItem>
+                            </Link>
                         ))}
                     </CommandGroup>
                 </Command>
