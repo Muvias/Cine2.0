@@ -38,7 +38,7 @@ export function GetMovies() {
     if (isLoading || !data) return <div>Loading...</div>
 
     return (
-        <div className="relative px-10 bg-gray-100">
+        <div className="relative px-10 bg-gray-50">
             {searchParam !== 'movie/now_playing' && (
                 <Pagination />
             )}

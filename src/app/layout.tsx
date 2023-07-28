@@ -1,11 +1,13 @@
-import { Menu } from '@/components/Menu'
+import type { Metadata } from 'next'
+
 import './globals.css'
 
 import Providers from '../contexts/providers'
 
-import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 import { ToApiProvider } from '@/contexts/ToApiContext'
+
+import { Menu } from '@/components/Menu'
 
 const poppins = Poppins({
   subsets: ['latin'],

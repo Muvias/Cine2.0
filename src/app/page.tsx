@@ -2,7 +2,7 @@ import { GetMovies } from "@/components/GetMovies";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col">
+    <main className="flex max-h-screen flex-col overflow-y-scroll">
       <GetMovies />
     </main>
   )

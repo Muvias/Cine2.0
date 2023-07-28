@@ -38,7 +38,6 @@ export function Pagination() {
                         {pag}
                     </DropdownMenuCheckboxItem>
                 ))}
-
             </DropdownMenuContent>
         </DropdownMenu>
     )
