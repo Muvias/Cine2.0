@@ -51,6 +51,7 @@ export function GetMovies() {
                         bgImg={movie.backdrop_path}
                         title={movie.title}
                         description={movie.overview}
+                        averageVotes={movie.vote_average}
                     />
                 ))}
             </div>

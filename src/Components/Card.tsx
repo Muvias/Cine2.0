@@ -7,9 +7,10 @@ interface Card {
     bgImg: string
     title: string
     description: string
+    averageVotes: number
 }
 
-export function Card({ cardImg, bgImg, title, description }: Card) {
+export function Card({ cardImg, bgImg, title, description, averageVotes }: Card) {
     return (
         <div
             className="flex flex-col min-w-[90%] h-[90vh] gap-4 rounded shadow-lg bg-gray-300 relative snap-center"
@@ -29,10 +30,14 @@ export function Card({ cardImg, bgImg, title, description }: Card) {
                 </h2>
 
                 <ScrollArea className="h-[10rem] px-6 py-2 shadow-md rounded-sm text-gray-800 bg-white bg-opacity-50">
-                    <p className="text-lg font-semibold ">
+                    <p className="text-lg font-semibold line-clamp-5 hover:line-clamp-none">
                         {description}
                     </p>
                 </ScrollArea>
+
+                <p className="absolute bottom-2 left-2 text-lg font-medium text-gray-800">Duração: </p>
+            
+                <span className="absolute bottom-2 right-2 px-2 border border-gray-600 text-3xl font-extrabold text-gray-800 rounded bg-zinc-100 bg-opacity-50">{averageVotes}</span>
             </div>
 
             <Image
