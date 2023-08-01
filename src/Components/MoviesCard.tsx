@@ -10,7 +10,7 @@ interface Card {
     averageVotes: number
 }
 
-export function Card({ cardImg, bgImg, title, description, averageVotes }: Card) {
+export function MoviesCard({ cardImg, bgImg, title, description, averageVotes }: Card) {
     return (
         <div
             className="flex flex-col min-w-[90%] h-[90vh] gap-4 rounded shadow-lg bg-gray-300 relative snap-center"
@@ -35,7 +35,7 @@ export function Card({ cardImg, bgImg, title, description, averageVotes }: Card)
                     </p>
                 </ScrollArea>
 
-                <p className="absolute bottom-2 left-2 text-lg font-medium text-gray-800">Duração: </p>
+                <p className="absolute bottom-2 left-2 text-lg font-medium text-gray-800">Duração: <span className="font-bold">1</span>h<span className="font-bold">00</span>min</p>
             
                 <span className="absolute bottom-2 right-2 px-2 border border-gray-600 text-3xl font-extrabold text-gray-800 rounded bg-zinc-100 bg-opacity-50">{averageVotes}</span>
             </div>

@@ -6,7 +6,7 @@ interface Card {
     content: string
 }
 
-export function ServicesCard({ image, title, content }: Card) {
+export function SimpleCard({ image, title, content }: Card) {
     return (
         <div className="shadow-lg p-8 rounded-md mt-4 bg-white">
             <Image src={image} alt='' className='max-w-xl w-full rounded-md aspect-video object-cover' />

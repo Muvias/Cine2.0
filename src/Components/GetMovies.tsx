@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 
 import { MutableRefObject, useContext, useEffect, useRef } from "react";
 import { ToApiContext } from "@/contexts/ToApiContext";
-import { Card } from "./Card";
+import { MoviesCard } from "./MoviesCard";
 import { ArrowsToCasousel } from "./ArrowsToCarousel";
 import { Pagination } from "./Pagination";
 
@@ -45,7 +45,7 @@ export function GetMovies() {
 
             <div className="flex gap-12 overflow-x-scroll scroll-smooth p-10 snap-x" ref={carousel}>
                 {data.map(movie => (
-                    <Card
+                    <MoviesCard
                         key={movie.id}
                         cardImg={movie.poster_path}
                         bgImg={movie.backdrop_path}
