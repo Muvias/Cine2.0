@@ -12,11 +12,6 @@ import { Pagination } from "./Pagination";
 
 interface Movie {
     id: number
-    title: string
-    overview: string
-    vote_average: number
-    poster_path: string
-    backdrop_path: string
 }
 
 export function GetMovies() {
@@ -47,11 +42,7 @@ export function GetMovies() {
                 {data.map(movie => (
                     <MoviesCard
                         key={movie.id}
-                        cardImg={movie.poster_path}
-                        bgImg={movie.backdrop_path}
-                        title={movie.title}
-                        description={movie.overview}
-                        averageVotes={movie.vote_average}
+                        movieId={movie.id}
                     />
                 ))}
             </div>

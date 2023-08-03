@@ -7,6 +7,14 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+.comma::after {
+  content: ',';
+}
+
+.comma:last-child::after {
+  content: '.';
+}
+
 /* 
 ::-webkit-scrollbar {
   width: 0;
