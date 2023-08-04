@@ -41,6 +41,14 @@ export function MoviesCard({ movieId }: Card) {
                 </ScrollArea>
 
                 <p className='flex flex-wrap items-end mt-4 px-6 gap-2 text-xl font-medium text-gray-800'>
+                    Produção: {data.production_companies.map(companie =>
+                        <span className='text-base font-bold text-gray-800 comma' key={companie.id}>
+                            {companie.name} - {companie.origin_country}
+                        </span>
+                    )}
+                </p>
+                
+                <p className='flex flex-wrap items-end mt-4 px-6 gap-2 text-xl font-medium text-gray-800'>
                     Gêneros: {data.genres.map(genre =>
                         <span className='text-base font-bold text-gray-800 comma' key={genre.id}>
                             {genre.name}
@@ -48,7 +56,7 @@ export function MoviesCard({ movieId }: Card) {
                     )}
                 </p>
 
-                <p className="absolute bottom-2 left-2 text-lg font-medium text-gray-800">Duração: <span className="font-bold">{data.runtime}</span><span className="text-base font-thin">min</span></p>
+                <p className="text-lg font-medium mt-4 px-6  text-gray-800">Duração: <span className="font-bold">{data.runtime}</span><span className="text-sm font-thin">min</span></p>
 
                 <span className="absolute bottom-2 right-2 px-2 border border-gray-600 text-3xl font-extrabold text-gray-800 rounded bg-zinc-100 bg-opacity-50">{data.vote_average.toFixed(1)}</span>
             </div>

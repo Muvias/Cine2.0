@@ -3,8 +3,14 @@ import { useQuery } from "@tanstack/react-query";
 import axios from 'axios';
 
 interface Genre {
-  id: number;
-  name: string;
+  id: number
+  name: string
+}
+
+interface Companies {
+  id: number
+  name: string
+  origin_country: string
 }
 
 interface Movie {
@@ -12,6 +18,7 @@ interface Movie {
   title: string
   overview: string
   genres: Genre[]
+  production_companies: Companies[]
   vote_average: number
   poster_path: string
   backdrop_path: string
