@@ -4,7 +4,7 @@ import movieTheater from '@/../public/movieTheater.jpg';
 
 export function AboutUs() {
     return (
-        <div className='w-full flex flex-col items-center mt-8 px-10 text-gray-800'>
+        <div className='w-full flex flex-col items-center mt-8 sm:px-12 px-6 text-gray-800'>
             <Image src={movieTheater} alt='' className='rounded-md aspect-video object-cover max-w-3xl w-full' />
 
             <div className='max-w-3xl mt-8'>

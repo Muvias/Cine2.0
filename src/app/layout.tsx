@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={poppins.className}>
-        <main className="grid grid-cols-2 min-h-screen">
+        <main className="lg:grid lg:grid-cols-2 flex min-h-screen">
           <ToApiProvider>
             {/* Menu e Filtros */}
             <div className='text-white bg-black'>

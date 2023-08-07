@@ -6,7 +6,7 @@ import privateScreenings from '@/../public/privateScreenings.jpg';
 
 export function OurServices() {
     return (
-        <div className='w-full flex flex-col items-center my-8 px-10 text-gray-800'>
+        <div className='w-full flex flex-col items-center my-8 sm:px-12 px-6 text-gray-800'>
             <h2 className='text-3xl max-w-3xl w-full font-semibold mb-4'>Nossos Serviços</h2>
 
             <SimpleCard

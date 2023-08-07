@@ -55,7 +55,7 @@ export function Combobox() {
                     variant="link"
                     role="combobox"
                     aria-expanded={open}
-                    className="w-[200px] justify-between text-3xl uppercase font-normal text-white"
+                    className="max-w-[200px] justify-between lg:text-3xl text-2xl uppercase font-normal text-white"
                 >
                     Catálogo
                     <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />

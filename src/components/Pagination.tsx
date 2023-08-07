@@ -25,7 +25,7 @@ export function Pagination() {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Button variant="outline">Pág. {page}</Button>
+                <Button variant="outline" className="px-4">Pág. {page}</Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56">
                 <DropdownMenuSeparator />

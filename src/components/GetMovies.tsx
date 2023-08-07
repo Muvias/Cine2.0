@@ -4,7 +4,7 @@ import axios from "axios";
 
 import { useQuery } from "@tanstack/react-query";
 
-import { MutableRefObject, useContext, useEffect, useRef } from "react";
+import { MutableRefObject, useContext, useRef } from "react";
 import { ToApiContext } from "@/contexts/ToApiContext";
 import { MoviesCard } from "./MoviesCard";
 import { ArrowsToCasousel } from "./ArrowsToCarousel";
@@ -33,12 +33,12 @@ export function GetMovies() {
     if (isLoading || !data) return <div>Loading...</div>
 
     return (
-        <div className="relative px-10 bg-gray-50">
+        <div className="relative px-10 pt-4 bg-gray-50">
             {searchParam !== 'movie/now_playing' && (
                 <Pagination />
             )}
 
-            <div className="flex gap-12 overflow-x-scroll scroll-smooth p-10 snap-x" ref={carousel}>
+            <div className="flex gap-12 overflow-x-scroll scroll-smooth xl:px-10 py-4 snap-x" ref={carousel}>
                 {data.map(movie => (
                     <MoviesCard
                         key={movie.id}

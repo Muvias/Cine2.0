@@ -18,7 +18,12 @@ export function MoviesCard({ movieId }: Card) {
 
     return (
         <div
-            className="flex flex-col min-w-[90%] h-[90vh] overflow-y-scroll gap-4 rounded shadow-lg bg-gray-300 relative snap-center"
+            className="flex flex-col min-w-[100%] xl:min-w-[90%] h-[90vh] overflow-y-scroll gap-4 rounded shadow-lg bg-gray-300 relative snap-center"
+            style={{
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(200, 200, 200, 0.9)), url('https://image.tmdb.org/t/p/original${data.backdrop_path}')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+            }}
         >
             <div className="z-50">
                 <Image
@@ -42,7 +47,7 @@ export function MoviesCard({ movieId }: Card) {
 
                 <p className='flex flex-wrap items-end mt-4 px-6 gap-2 text-xl font-medium text-gray-800'>
                     Produção: {data.production_companies.map(companie =>
-                        <span className='text-base font-bold text-gray-800 comma' key={companie.id}>
+                        <span className='px-2 text-base font-bold rounded text-gray-800 bg-zinc-100 bg-opacity-70' key={companie.id}>
                             {companie.name} - {companie.origin_country}
                         </span>
                     )}
@@ -50,25 +55,16 @@ export function MoviesCard({ movieId }: Card) {
                 
                 <p className='flex flex-wrap items-end mt-4 px-6 gap-2 text-xl font-medium text-gray-800'>
                     Gêneros: {data.genres.map(genre =>
-                        <span className='text-base font-bold text-gray-800 comma' key={genre.id}>
+                        <span className='px-2 text-base font-bold rounded text-gray-800 bg-zinc-100 bg-opacity-70' key={genre.id}>
                             {genre.name}
                         </span>
                     )}
                 </p>
 
-                <p className="text-lg font-medium mt-4 px-6  text-gray-800">Duração: <span className="font-bold">{data.runtime}</span><span className="text-sm font-thin">min</span></p>
+                <p className="text-lg font-medium mt-4 px-6 text-gray-800">Duração: <span className="font-bold">{data.runtime}</span><span className="text-sm font-thin">min</span></p>
 
-                <span className="absolute bottom-2 right-2 px-2 border border-gray-600 text-3xl font-extrabold text-gray-800 rounded bg-zinc-100 bg-opacity-50">{data.vote_average.toFixed(1)}</span>
+                <span className="absolute top-8 right-2 px-2 border border-gray-600 text-3xl font-extrabold text-gray-800 rounded bg-zinc-100 bg-opacity-80">{data.vote_average.toFixed(1)}</span>
             </div>
-
-            <Image
-                src={`https://image.tmdb.org/t/p/original${data.backdrop_path}`}
-                alt=''
-                width={592}
-                height={280}
-                priority={true}
-                className='absolute left-0 top-0 w-full h-full object-cover opacity-30 rounded brightness-75'
-            />
         </div>
     )
 }
