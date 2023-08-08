@@ -30,7 +30,7 @@ export default function RootLayout({
         <main className="lg:grid lg:grid-cols-2 flex min-h-screen">
           <ToApiProvider>
             {/* Menu e Filtros */}
-            <div className='text-white bg-black'>
+            <div>
               <Menu />
             </div>
 
