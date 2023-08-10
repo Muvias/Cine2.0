@@ -12,10 +12,11 @@ import { Pagination } from "./Pagination";
 
 interface Movie {
     id: number
+    original_title: string
 }
 
 export function GetMovies() {
-    const { searchParam, queryParam, page, setTotalPages } = useContext(ToApiContext)
+    const { searchParam, queryParam, page, setTotalPages, filtering, setFiltering } = useContext(ToApiContext)
 
     const carousel = useRef() as MutableRefObject<HTMLDivElement>
 
@@ -38,8 +39,15 @@ export function GetMovies() {
                 <Pagination />
             )}
 
+            <input
+                placeholder="Digite o filme..."
+                className="flex mx-auto px-2 py-1 text-sm border border-gray-800 rounded-sm"
+                onChange={(e) => setFiltering(e.target.value)}
+            />
+
             <div className="flex gap-12 overflow-x-scroll scroll-smooth xl:px-10 py-4 snap-x" ref={carousel}>
-                {data.map(movie => (
+                {data.filter(movie => movie.original_title.toLowerCase().includes(filtering.toLocaleLowerCase())
+                ).map(movie => (
                     <MoviesCard
                         key={movie.id}
                         movieId={movie.id}

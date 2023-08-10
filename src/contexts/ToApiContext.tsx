@@ -14,6 +14,9 @@ interface ToApiContextType {
 
     totalPages: number
     setTotalPages: Dispatch<SetStateAction<number>>
+
+    filtering: string
+    setFiltering: Dispatch<SetStateAction<string>>
 }
 
 export const ToApiContext = createContext({} as ToApiContextType);
@@ -23,9 +26,10 @@ export function ToApiProvider({ children }: { children: ReactNode }) {
     const [queryParam, setQueryParam] = useState('');
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
+    const [filtering, setFiltering] = useState('')
 
     return (
-        <ToApiContext.Provider value={{ searchParam, setSearchParam, queryParam, setQueryParam, page, setPage, totalPages, setTotalPages }}>
+        <ToApiContext.Provider value={{ searchParam, setSearchParam, queryParam, setQueryParam, page, setPage, totalPages, setTotalPages, filtering, setFiltering }}>
             {children}
         </ToApiContext.Provider>
     )
