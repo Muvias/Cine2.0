@@ -20,14 +20,14 @@ export function MoviesCard({ movieId }: Card) {
         <div
             className="flex flex-col min-w-[100%] xl:min-w-[90%] h-[90vh] overflow-y-scroll gap-4 rounded shadow-lg bg-gray-300 relative snap-center"
             style={{
-                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(200, 200, 200, 0.9)), url('https://image.tmdb.org/t/p/original${data.backdrop_path}')`,
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(200, 200, 200, 0.9)), url('https://image.tmdb.org/t/p/original${data.poster_path}')`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
             }}
         >
             <div className="z-50">
                 <Image
-                    src={`https://image.tmdb.org/t/p/original${data.poster_path}`}
+                    src={`https://image.tmdb.org/t/p/original${data.backdrop_path}`}
                     alt=''
                     width={592}
                     height={280}
@@ -40,9 +40,13 @@ export function MoviesCard({ movieId }: Card) {
                 </h2>
 
                 <ScrollArea className="h-[10rem] px-6 py-2 shadow-md rounded-sm text-gray-800 bg-white bg-opacity-50">
-                    <p className="text-lg font-semibold line-clamp-5 hover:line-clamp-none">
-                        {data.overview}
-                    </p>
+                    {data.overview ? (
+                        <p className="text-lg font-semibold line-clamp-5 hover:line-clamp-none">
+                            {data.overview}
+                        </p>
+                    ) : (
+                        <p className="text-lg font-semibold">Este filme ainda não possui uma descrição...</p>
+                    )}
                 </ScrollArea>
 
                 <p className='flex flex-wrap items-end mt-4 px-6 gap-2 text-xl font-medium text-gray-800'>
@@ -52,7 +56,7 @@ export function MoviesCard({ movieId }: Card) {
                         </span>
                     )}
                 </p>
-                
+
                 <p className='flex flex-wrap items-end mt-4 px-6 gap-2 text-xl font-medium text-gray-800'>
                     Gêneros: {data.genres.map(genre =>
                         <span className='px-2 text-base font-bold rounded text-gray-800 bg-zinc-100 bg-opacity-70' key={genre.id}>
