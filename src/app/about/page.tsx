@@ -3,10 +3,10 @@ import { OurServices } from "@/components/about/OurServices";
 
 export default function About() {
     return (
-        <section className="max-h-screen overflow-y-scroll bg-gray-100">
+        <div className="max-h-screen overflow-y-scroll bg-gray-100">
             <AboutUs />
 
             <OurServices />
-        </section>
+        </div>
     )
 }

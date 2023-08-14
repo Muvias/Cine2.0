@@ -1,23 +1,21 @@
-'use client'
-
 import axios from "axios";
 
+import { useContext } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import * as Popover from '@radix-ui/react-popover';
 import * as Checkbox from '@radix-ui/react-checkbox';
 
-import { useContext } from "react";
 import { ToApiContext } from "@/contexts/ToApiContext";
 
-import { Check, X, Filter } from "lucide-react"
+import { Check as CheckedIcon, X, Filter as FilterIcon } from "lucide-react"
 
 interface Genre {
     id: number
     name: string
 }
 
-export function FilteringByGenreMovie() {
+export function FilteringByMovieGenre() {
     const { filteringGenres, setFilteringGenres } = useContext(ToApiContext)
 
     const { data, isLoading } = useQuery<Genre[]>({
@@ -47,7 +45,7 @@ export function FilteringByGenreMovie() {
         <Popover.Root>
             <Popover.Trigger>
                 <div className="w-9 h-9 flex items-center justify-center rounded-full bg-gray-700 text-white shadow-sm hover:bg-gray-800 transition-colors" aria-label="Movies filter">
-                    <Filter />
+                    <FilterIcon />
                 </div>
             </Popover.Trigger>
             <Popover.Anchor />
@@ -64,7 +62,7 @@ export function FilteringByGenreMovie() {
                                 >
                                     <div className='w-6 h-6 flex items-center justify-center rounded-lg bg-white group-hover:bg-gray-700 transition-colors'>
                                         <Checkbox.Indicator className="text-gray-900">
-                                            <Check />
+                                            <CheckedIcon />
                                         </Checkbox.Indicator>
                                     </div>
 

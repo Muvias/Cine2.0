@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-import { Combobox } from "./Combobox";
+import { MenuForMovieOptions } from "./MenuForMovieOptions";
 import { AlignJustify } from "lucide-react";
 import { useState } from "react";
 
@@ -24,7 +24,7 @@ export function Menu() {
                     <li><Link href="home" onClick={closeMenu}>Inicio</Link></li>
                     <li><Link href="about" onClick={closeMenu}>Sobre Nós</Link></li>
                     <li><Link href="location" onClick={closeMenu}>Localização</Link></li>
-                    <li onClick={closeMenu}><Combobox  /></li>
+                    <li onClick={closeMenu}><MenuForMovieOptions  /></li>
                 </ul>
             </div>
             

@@ -2,14 +2,18 @@
 
 import axios from "axios";
 
+import { MutableRefObject, useContext, useRef } from "react";
 import { useQuery } from "@tanstack/react-query";
 
-import { MutableRefObject, useContext, useRef, useState } from "react";
 import { ToApiContext } from "@/contexts/ToApiContext";
+
 import { MoviesCard } from "./MoviesCard";
+
 import { ArrowsToCasousel } from "./ArrowsToCarousel";
 import { Pagination } from "./Pagination";
-import { FilteringByGenreMovie } from "./FilteringByGenreMovie";
+
+import { FilteringByMovieGenre } from "./filters/FilteringByMovieGenre";
+import { FilterByMovieName } from "./filters/FilterByMovieName";
 
 interface Movie {
     id: number
@@ -17,10 +21,8 @@ interface Movie {
     genre_ids: Number[]
 }
 
-export function GetMovies() {
-    const { searchParam, queryParam, page, setTotalPages, filteringGenres } = useContext(ToApiContext)
-
-    const [filtering, setFiltering] = useState('')
+export function MovieRenderer() {
+    const { searchParam, queryParam, page, setTotalPages, filteringByNames, filteringGenres } = useContext(ToApiContext)
 
     const carousel = useRef() as MutableRefObject<HTMLDivElement>
 
@@ -44,17 +46,13 @@ export function GetMovies() {
                     <Pagination />
                 )}
 
-                <input
-                    placeholder="Digite o filme..."
-                    className="flex px-2 py-1 text-sm border border-gray-800 rounded-sm"
-                    onChange={(e) => setFiltering(e.target.value)}
-                />
+                <FilterByMovieName />
 
-                <FilteringByGenreMovie />
+                <FilteringByMovieGenre />
             </div>
 
             <div className="flex gap-12 overflow-x-scroll scroll-smooth xl:px-10 py-4 snap-x" ref={carousel}>
-                {data.filter(movie => movie.original_title.toLowerCase().includes(filtering.toLocaleLowerCase()) && filteringGenres.every(id => movie.genre_ids.includes(id))
+                {data.filter(movie => movie.original_title.toLowerCase().includes(filteringByNames.toLocaleLowerCase()) && filteringGenres.every(id => movie.genre_ids.includes(id))
                 ).map(movie => (
                     <MoviesCard
                         key={movie.id}
@@ -62,8 +60,8 @@ export function GetMovies() {
                     />
                 ))}
 
-                {data.filter(movie => movie.original_title.toLowerCase().includes(filtering.toLowerCase())).length === 0 && (
-                    <p>Não foi encontrado nenhum filme nesta página que corresponda a "<span className="font-bold">{filtering}</span>"</p>
+                {data.filter(movie => movie.original_title.toLowerCase().includes(filteringByNames.toLowerCase())).length === 0 && (
+                    <p>Não foi encontrado nenhum filme nesta página que corresponda a "<span className="font-bold">{filteringByNames}</span>"</p>
                 )}
             </div>
 

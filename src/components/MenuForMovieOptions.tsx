@@ -43,7 +43,7 @@ const categories = [
     },
 ]
 
-export function Combobox() {
+export function MenuForMovieOptions() {
     const [open, setOpen] = React.useState(false)
     const [value, setValue] = React.useState("cinema")
     const { setSearchParam, setQueryParam } = React.useContext(ToApiContext)
