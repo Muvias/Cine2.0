@@ -63,6 +63,10 @@ export function MovieRenderer() {
                 {data.filter(movie => movie.original_title.toLowerCase().includes(filteringByNames.toLowerCase())).length === 0 && (
                     <p>Não foi encontrado nenhum filme nesta página que corresponda a "<span className="font-bold">{filteringByNames}</span>"</p>
                 )}
+
+                {data.filter(movie => filteringGenres.every(id => movie.genre_ids.includes(id))).length === 0 && (
+                    <p>Não foi encontrado nenhum filme nesta página que corresponda à esta combinação de gêneros.</p>
+                )}
             </div>
 
             <ArrowsToCasousel carouselRef={carousel} />

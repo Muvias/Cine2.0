@@ -20,7 +20,7 @@ export function MoviesCard({ movieId }: Card) {
         <div
             className="flex flex-col min-w-[100%] xl:min-w-[90%] h-[90vh] overflow-y-scroll gap-4 rounded shadow-lg bg-gray-300 relative snap-center"
             style={{
-                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(200, 200, 200, 0.9)), url('https://image.tmdb.org/t/p/original${data.poster_path}')`,
+                backgroundImage: `linear-gradient(rgba(200, 200, 200, 0.4), rgba(200, 200, 200, 0.9)), url('https://image.tmdb.org/t/p/original${data.poster_path}')`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
             }}
