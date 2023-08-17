@@ -43,7 +43,11 @@ const categories = [
     },
 ]
 
-export function MenuForMovieOptions() {
+interface MenuProps {
+    closeMenu: () => void
+}
+
+export function MenuForMovieOptions({ closeMenu }: MenuProps) {
     const [open, setOpen] = React.useState(false)
     const [value, setValue] = React.useState("cinema")
     const { setSearchParam, setQueryParam } = React.useContext(ToApiContext)
@@ -67,7 +71,7 @@ export function MenuForMovieOptions() {
                     <CommandEmpty>Categoria não encontrada.</CommandEmpty>
                     <CommandGroup>
                         {categories.map((categorie) => (
-                            <Link href="/" key={categorie.value}>
+                            <Link href="/" key={categorie.value} onClick={closeMenu}>
                                 <CommandItem
                                     onSelect={(currentValue) => {
                                         setValue(currentValue)

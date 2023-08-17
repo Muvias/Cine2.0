@@ -24,7 +24,7 @@ export function Menu() {
                     <li><Link href="home" onClick={closeMenu}>Inicio</Link></li>
                     <li><Link href="about" onClick={closeMenu}>Sobre Nós</Link></li>
                     <li><Link href="location" onClick={closeMenu}>Localização</Link></li>
-                    <li onClick={closeMenu}><MenuForMovieOptions  /></li>
+                    <li><MenuForMovieOptions closeMenu={closeMenu} /></li>
                 </ul>
             </div>
             
